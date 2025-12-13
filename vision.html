@@ -19,20 +19,97 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{background:#f6f8fb;color:#0b1220}
 
+    /* HEADER */
     header{
       position:fixed;top:0;left:0;right:0;z-index:50;
       backdrop-filter: blur(6px);
       background: rgba(255,255,255,0.7);
-      border-bottom:1px solid rgba(11,18,32,0.06);
+      border-bottom:1px solid rgba(11,18,32,0.08);
     }
-    .nav-inner{max-width:var(--max-width);margin:0 auto;padding:12px 18px;display:flex;justify-content:space-between;align-items:center}
-    nav ul{display:flex;gap:12px;list-style:none}
-    nav a{color:var(--dark);padding:8px 10px;font-weight:600;text-decoration:none;border-radius:8px}
+    .nav-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:12px 18px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:44px}
+
+    /* ESTILOS DE NAVEGACIÓN DE ESCRITORIO */
+    nav ul{list-style:none;display:flex;gap:12px}
+    nav a{
+      text-decoration:none;color:var(--dark);
+      padding:8px 10px;font-weight:600;border-radius:8px;
+    }
     nav a:hover{background:var(--glass)}
+
+    /* BOTÓN DE HAMBURGUESA - ESCRITORIO: OCULTO */
+    .menu-toggle{display:none}
+
+    /* ESTILOS MÓVILES (Menú Hamburguesa) */
+    @media (max-width: 768px) {
+      /* MOSTRAR BOTÓN DE HAMBURGUESA */
+      .menu-toggle{
+        display:block;
+        background:transparent;
+        border:none;
+        padding:8px;
+        cursor:pointer;
+        z-index:60; 
+      }
+      .menu-toggle .line{
+        display:block;
+        width:25px;
+        height:3px;
+        background:var(--dark);
+        margin:5px 0;
+        transition:all 0.3s ease;
+      }
+
+      /* OCULTAR MENÚ POR DEFECTO */
+      .nav-links ul{
+        flex-direction:column;
+        position:fixed;
+        top:68px; /* Altura del header */
+        right:0;
+        width:250px;
+        height:100vh;
+        background:white;
+        box-shadow:-2px 0 10px rgba(0,0,0,0.1);
+        transform:translateX(100%); /* Ocultar fuera de la vista */
+        transition:transform 0.3s ease-in-out;
+        padding:20px;
+      }
+      .nav-links li{
+        margin-bottom:10px;
+      }
+      .nav-links a{
+        display:block; /* Para que ocupe todo el ancho */
+        padding:12px 10px;
+        border-radius:6px;
+      }
+
+      /* ESTADO ABIERTO DEL MENÚ */
+      .nav-open .nav-links ul{
+        transform:translateX(0); /* Mostrar el menú */
+      }
+
+      /* EFECTO X EN EL BOTÓN AL ABRIR */
+      .nav-open .menu-toggle .line:nth-child(2){
+        opacity:0;
+      }
+      .nav-open .menu-toggle .line:nth-child(1){
+        transform:translateY(8px) rotate(45deg);
+      }
+      .nav-open .menu-toggle .line:nth-child(3){
+        transform:translateY(-8px) rotate(-45deg);
+      }
+    }
+
 
     .hero{
       min-height:45vh;padding-top:88px;
-      background-image:url('https://www.microplanet-psl.com/wp-content/uploads/ELAB-Etiquetas-RFID-cabecera.jpg');
+      background-image:url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80');
       background-size:cover;background-position:center;color:white;text-align:center;
       display:flex;align-items:center;justify-content:center;position:relative;
     }
@@ -53,7 +130,7 @@
 
 <header>
   <div class="nav-inner">
-    <div class="brand" style="display:flex;align-items:center;gap:12px">
+    <div class="brand">
       <img src="img/logocontrolity.png" height="44">
       <div>
         <div style="font-weight:800">Controlity</div>
@@ -61,7 +138,7 @@
       </div>
     </div>
 
-    <nav>
+    <nav class="nav-links">
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="mision.html">Misión</a></li>
@@ -69,6 +146,12 @@
         <li><a href="como-funciona.html">Cómo funciona</a></li>
       </ul>
     </nav>
+    
+    <button class="menu-toggle" aria-label="Abrir menú de navegación">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </button>
   </div>
 </header>
 
@@ -107,6 +190,15 @@
 <footer>
   © Controlity · 2025 · Tecnología RFID para inventarios
 </footer>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const body = document.body;
+
+  menuToggle.addEventListener('click', () => {
+    body.classList.toggle('nav-open');
+  });
+</script>
 
 </body>
 </html>
