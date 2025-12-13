@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Controlity - Cómo funciona</title>
+  <meta name="description" content="Cómo funciona la tecnología RFID aplicada al control de inventarios.">
+
+  <style>
+    :root{
+      --accent:#0ea5a4;
+      --dark:#0b1220;
+      --muted:#6b7280;
+      --glass: rgba(255,255,255,0.06);
+      --max-width:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#f6f8fb;color:var(--dark);line-height:1.5}
+
+    /* HEADER */
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      backdrop-filter:blur(6px);
+      background:rgba(255,255,255,0.75);
+      border-bottom:1px solid rgba(11,18,32,0.08);
+    }
+    .nav-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:12px 18px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    nav ul{list-style:none;display:flex;gap:12px}
+    nav a{
+      text-decoration:none;color:var(--dark);
+      padding:8px 10px;font-weight:600;border-radius:8px;
+    }
+    nav a:hover{background:var(--glass)}
+
+    /* HERO */
+    .hero{
+      min-height:45vh;padding-top:88px;
+      background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1650&q=80');
+      background-size:cover;background-position:center;
+      color:white;text-align:center;
+      display:flex;align-items:center;justify-content:center;
+      position:relative;
+    }
+    .hero::after{
+      content:"";position:absolute;inset:0;
+      background:rgba(0,0,0,0.45);
+    }
+    .hero .container{position:relative;z-index:2;padding:40px}
+
+    /* TARJETAS */
+    main{max-width:var(--max-width);margin:30px auto;padding:18px}
+    .card{
+      background:white;padding:22px;border-radius:12px;
+      box-shadow:0 6px 20px rgba(11,18,32,0.07);margin-bottom:22px;
+    }
+    .section-title{font-size:1.5rem;font-weight:700;margin-bottom:12px}
+    .muted{color:var(--muted)}
+
+    .steps{display:flex;flex-direction:column;gap:18px;margin-top:15px}
+    .step{display:flex;gap:14px;align-items:flex-start}
+    .num{
+      width:42px;height:42px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      background:var(--accent);color:white;font-weight:800;font-size:1.1rem;
+    }
+
+    .img-block{
+      width:100%;height:240px;border-radius:10px;
+      background-size:cover;background-position:center;margin-bottom:12px;
+    }
+
+    footer{text-align:center;padding:20px;color:var(--muted);font-size:0.9rem}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div style="display:flex;align-items:center;gap:12px">
+      <img src="img/logocontrolity.png" height="44">
+      <div>
+        <strong>Controlity</strong><br>
+        <span style="font-size:12px;color:var(--muted)">Tecnología RFID</span>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mision.html">Misión</a></li>
+        <li><a href="vision.html">Visión</a></li>
+        <li><a href="como-funciona.html" style="background:var(--glass)">Cómo funciona</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1 style="font-size:2.4rem;font-weight:800">Cómo funciona nuestra tecnología RFID</h1>
+    <p style="font-size:1.1rem;margin-top:10px">Automatización real en cada etapa del inventario</p>
+  </div>
+</section>
+
+<main>
+
+  <!-- FLUJO DE TRABAJO RFID -->
+  <section class="card">
+    <h2 class="section-title">Flujo de trabajo del inventario usando RFID</h2>
+    <p class="muted">
+      El proceso de control de inventarios con RFID automatiza cada movimiento del activo, reduciendo errores humanos
+      y permitiendo visibilidad total en tiempo real. A continuación se muestra cómo opera el flujo completo.
+    </p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <strong>Asignación y etiquetado RFID</strong>
+          <p class="muted">
+            Cada producto, herramienta o activo recibe una etiqueta RFID única.  
+            Esta etiqueta almacena un número de identificación que el sistema reconoce sin necesidad de contacto físico.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <strong>Registro en la base de datos</strong>
+          <p class="muted">
+            Una vez etiquetado, el artículo se registra automáticamente en la plataforma,
+            quedando asociado a su categoría, ubicación, estatus y características.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <strong>Lectura automática en puntos estratégicos</strong>
+          <p class="muted">
+            Antenas o lectores RFID instalados en entradas, salidas, pasillos, almacenes o áreas críticas 
+            detectan el movimiento del activo cada vez que pasa cerca.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">4</div>
+        <div>
+          <strong>Actualización en tiempo real</strong>
+          <p class="muted">
+            Cada lectura RFID se sincroniza con la nube, actualizando la existencia, ubicación
+            y estatus del inventario automáticamente, sin intervención humana.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">5</div>
+        <div>
+          <strong>Alertas automáticas</strong>
+          <p class="muted">
+            Si un activo sale sin autorización, cambia de área o se detecta un conteo inconsistente,
+            el sistema envía alertas instantáneas.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">6</div>
+        <div>
+          <strong>Auditorías y conteos inteligentes</strong>
+          <p class="muted">
+            Con solo caminar con un lector portátil por el almacén,
+            es posible realizar un inventario completo en minutos,
+            eliminando el conteo manual tradicional.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- IMAGEN DEMO -->
+  <section class="card">
+    <div class="img-block" style="background-image:url('https://images.unsplash.com/photo-1581091012184-7c8988d96a11?auto=format&fit=crop&w=1200&q=80')"></div>
+    <p class="muted">La lectura RFID permite identificar múltiples artículos al mismo tiempo, incluso dentro de cajas o a distancia.</p>
+  </section>
+
+  <!-- BOTÓN REGRESAR -->
+  <section class="card">
+    <h3 class="section-title">Volver al inicio</h3>
+    <a href="index.html" style="background:var(--accent);padding:10px 16px;color:white;text-decoration:none;border-radius:10px;font-weight:700">
+      Regresar
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  © Controlity · 2025 · Tecnología RFID para inventarios
+</footer>
+
+</body>
+</html>
+

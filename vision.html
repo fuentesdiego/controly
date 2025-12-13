@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Controlity - Visión</title>
+  <meta name="description" content="Visión de Controlity, empresa especializada en RFID para control de inventarios.">
+
+  <style>
+    :root{
+      --accent:#0ea5a4;
+      --dark:#0b1220;
+      --muted:#6b7280;
+      --glass: rgba(255,255,255,0.06);
+      --max-width:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#f6f8fb;color:#0b1220}
+
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.7);
+      border-bottom:1px solid rgba(11,18,32,0.06);
+    }
+    .nav-inner{max-width:var(--max-width);margin:0 auto;padding:12px 18px;display:flex;justify-content:space-between;align-items:center}
+    nav ul{display:flex;gap:12px;list-style:none}
+    nav a{color:var(--dark);padding:8px 10px;font-weight:600;text-decoration:none;border-radius:8px}
+    nav a:hover{background:var(--glass)}
+
+    .hero{
+      min-height:45vh;padding-top:88px;
+      background-image:url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;background-position:center;color:white;text-align:center;
+      display:flex;align-items:center;justify-content:center;position:relative;
+    }
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45)}
+    .hero .container{position:relative;z-index:2;padding:40px}
+
+    main{max-width:var(--max-width);margin:30px auto;padding:18px}
+    .card{background:white;padding:22px;border-radius:12px;box-shadow:0 6px 20px rgba(11,18,32,0.07);margin-bottom:20px}
+
+    .section-title{font-size:1.5rem;font-weight:700;margin-bottom:12px}
+    .muted{color:var(--muted)}
+
+    footer{text-align:center;padding:20px;font-size:0.9rem;color:var(--muted)}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand" style="display:flex;align-items:center;gap:12px">
+      <img src="img/logocontrolity.png" height="44">
+      <div>
+        <div style="font-weight:800">Controlity</div>
+        <div style="font-size:12px;color:var(--muted)">Tecnología RFID</div>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mision.html">Misión</a></li>
+        <li><a href="vision.html" style="background:var(--glass)">Visión</a></li>
+        <li><a href="como-funciona.html">Cómo funciona</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1 style="font-size:2.4rem;font-weight:800">Nuestra Visión</h1>
+    <p style="font-size:1.1rem;margin-top:10px">Ser líderes en automatización RFID en Latinoamérica</p>
+  </div>
+</section>
+
+<main>
+
+  <section class="card">
+    <h2 class="section-title">Visión de Controlity</h2>
+    <p class="muted">
+      Nuestra visión es convertirnos en la plataforma líder de control y administración de inventarios mediante tecnología RFID 
+      en México y Latinoamérica, ofreciendo herramientas de alta precisión, automatización avanzada y datos en tiempo real que impulsen la transformación digital de las empresas.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">A futuro</h2>
+    <p class="muted">
+      Aspiramos a desarrollar un ecosistema inteligente de lectura, análisis y gestión automatizada que permita a las organizaciones 
+      operar con inventarios totalmente visibles, auditables y sincronizados sin intervención manual.
+    </p>
+  </section>
+
+  <section class="card">
+    <h3 class="section-title">Volver al inicio</h3>
+    <a href="index.html" style="background:var(--accent);padding:10px 16px;color:white;text-decoration:none;border-radius:10px;font-weight:700">Regresar</a>
+  </section>
+
+</main>
+
+<footer>
+  © Controlity · 2025 · Tecnología RFID para inventarios
+</footer>
+
+</body>
+</html>

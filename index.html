@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Controlity - Inicio</title>
+  <meta name="description" content="Controlity - Soluciones RFID para inventarios.">
+
+  <style>
+    :root{
+      --accent:#0ea5a4;
+      --dark:#0b1220;
+      --muted:#6b7280;
+      --glass: rgba(255,255,255,0.06);
+      --max-width:1100px;
+      font-family: Inter, system-ui, "Segoe UI", Roboto, Arial;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#f6f8fb;color:var(--dark);line-height:1.5}
+
+    /* HEADER */
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      backdrop-filter:blur(6px);
+      background:rgba(255,255,255,0.75);
+      border-bottom:1px solid rgba(11,18,32,0.08);
+    }
+    .nav-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:12px 18px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:44px}
+
+    nav ul{list-style:none;display:flex;gap:12px}
+    nav a{
+      text-decoration:none;color:var(--dark);
+      padding:8px 10px;font-weight:600;border-radius:8px;
+    }
+    nav a:hover{background:var(--glass)}
+
+    /* HERO */
+    .hero{
+      min-height:70vh;padding-top:88px;
+      background-image:url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;background-position:center;
+      display:flex;align-items:center;justify-content:center;
+      position:relative;color:white;text-align:center;
+    }
+    .hero::after{
+      content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45);
+    }
+    .hero .container{
+      position:relative;z-index:2;
+      padding:40px;
+    }
+    .hero h1{
+      font-size:clamp(2rem,4vw,3rem);
+      font-weight:800;
+    }
+
+    /* CONTACTO */
+    .contact-section{
+      max-width:var(--max-width);
+      margin:40px auto;
+      background:white;
+      padding:22px;
+      border-radius:12px;
+      box-shadow:0 6px 20px rgba(11,18,32,0.07);
+      text-align:center;
+    }
+
+    .section-title{font-size:1.5rem;font-weight:700;margin-bottom:12px}
+    .muted{color:var(--muted)}
+    footer{text-align:center;padding:20px;font-size:0.9rem;color:var(--muted)}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <img src="img/logocontrolity.png" alt="Controlity logo">
+      <div>
+        <strong>Controlity</strong><br>
+        <span style="font-size:12px;color:var(--muted)">Tecnología RFID</span>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html" style="background:var(--glass)">Inicio</a></li>
+        <li><a href="mision.html">Misión</a></li>
+        <li><a href="vision.html">Visión</a></li>
+        <li><a href="como-funciona.html">Cómo funciona</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Controlity</h1>
+    <p style="margin-top:10px;font-size:1.2rem">Soluciones RFID para inventarios</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <h2 class="section-title">Contacto</h2>
+  <p class="muted" style="font-size:1rem;margin-bottom:10px">
+    Estamos listos para ayudarte a automatizar tu control de inventarios.
+  </p>
+
+  <p><strong>Teléfono:</strong> 477 678 65 09</p>
+  <p><strong>Correo:</strong> DiegoFuentes@controlity.com</p>
+</section>
+
+<footer>
+  © Controlity · 2025 · Tecnología RFID para inventarios
+</footer>
+
+</body>
+</html>
