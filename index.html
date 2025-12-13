@@ -35,12 +35,78 @@
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{height:44px}
 
+    /* ESTILOS DE NAVEGACIÓN DE ESCRITORIO */
     nav ul{list-style:none;display:flex;gap:12px}
     nav a{
       text-decoration:none;color:var(--dark);
       padding:8px 10px;font-weight:600;border-radius:8px;
     }
     nav a:hover{background:var(--glass)}
+
+    /* BOTÓN DE HAMBURGUESA - ESCRITORIO: OCULTO */
+    .menu-toggle{display:none}
+
+
+    /* ESTILOS MÓVILES (Menú Hamburguesa) */
+    @media (max-width: 768px) {
+      /* MOSTRAR BOTÓN DE HAMBURGUESA */
+      .menu-toggle{
+        display:block;
+        background:transparent;
+        border:none;
+        padding:8px;
+        cursor:pointer;
+        z-index:60; /* Para que esté por encima del menú */
+      }
+      .menu-toggle .line{
+        display:block;
+        width:25px;
+        height:3px;
+        background:var(--dark);
+        margin:5px 0;
+        transition:all 0.3s ease;
+      }
+
+      /* OCULTAR MENÚ POR DEFECTO */
+      .nav-links ul{
+        flex-direction:column;
+        position:fixed;
+        top:68px; /* Altura del header */
+        right:0;
+        width:250px;
+        height:100vh;
+        background:white;
+        box-shadow:-2px 0 10px rgba(0,0,0,0.1);
+        transform:translateX(100%); /* Ocultar fuera de la vista */
+        transition:transform 0.3s ease-in-out;
+        padding:20px;
+      }
+      .nav-links li{
+        margin-bottom:10px;
+      }
+      .nav-links a{
+        display:block; /* Para que ocupe todo el ancho */
+        padding:12px 10px;
+        border-radius:6px;
+      }
+
+      /* ESTADO ABIERTO DEL MENÚ */
+      .nav-open .nav-links ul{
+        transform:translateX(0); /* Mostrar el menú */
+      }
+
+      /* EFECTO X EN EL BOTÓN AL ABRIR */
+      .nav-open .menu-toggle .line:nth-child(2){
+        opacity:0;
+      }
+      .nav-open .menu-toggle .line:nth-child(1){
+        transform:translateY(8px) rotate(45deg);
+      }
+      .nav-open .menu-toggle .line:nth-child(3){
+        transform:translateY(-8px) rotate(-45deg);
+      }
+    }
+
 
     /* HERO */
     .hero{
@@ -91,7 +157,7 @@
       </div>
     </div>
 
-    <nav>
+    <nav class="nav-links">
       <ul>
         <li><a href="index.html" style="background:var(--glass)">Inicio</a></li>
         <li><a href="mision.html">Misión</a></li>
@@ -99,6 +165,12 @@
         <li><a href="como-funciona.html">Cómo funciona</a></li>
       </ul>
     </nav>
+    
+    <button class="menu-toggle" aria-label="Abrir menú de navegación">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </button>
   </div>
 </header>
 
@@ -123,5 +195,24 @@
   © Controlity · 2025 · Tecnología RFID para inventarios
 </footer>
 
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const body = document.body;
+
+  menuToggle.addEventListener('click', () => {
+    body.classList.toggle('nav-open');
+  });
+</script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const body = document.body;
+
+  // Al hacer click en el botón, alterna la clase 'nav-open' en el <body>
+  menuToggle.addEventListener('click', () => {
+    body.classList.toggle('nav-open');
+  });
+</script>
+
 </body>
+
 </html>
