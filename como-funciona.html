@@ -32,6 +32,8 @@
       padding:12px 18px;
       display:flex;align-items:center;justify-content:space-between;
     }
+    
+    /* ESTILOS DE NAVEGACIÓN DE ESCRITORIO */
     nav ul{list-style:none;display:flex;gap:12px}
     nav a{
       text-decoration:none;color:var(--dark);
@@ -39,10 +41,74 @@
     }
     nav a:hover{background:var(--glass)}
 
+    /* BOTÓN DE HAMBURGUESA - ESCRITORIO: OCULTO */
+    .menu-toggle{display:none}
+
+
+    /* ESTILOS MÓVILES (Menú Hamburguesa) */
+    @media (max-width: 768px) {
+      /* MOSTRAR BOTÓN DE HAMBURGUESA */
+      .menu-toggle{
+        display:block;
+        background:transparent;
+        border:none;
+        padding:8px;
+        cursor:pointer;
+        z-index:60; 
+      }
+      .menu-toggle .line{
+        display:block;
+        width:25px;
+        height:3px;
+        background:var(--dark);
+        margin:5px 0;
+        transition:all 0.3s ease;
+      }
+
+      /* OCULTAR MENÚ POR DEFECTO */
+      .nav-links ul{
+        flex-direction:column;
+        position:fixed;
+        top:68px; /* Altura del header */
+        right:0;
+        width:250px;
+        height:100vh;
+        background:white;
+        box-shadow:-2px 0 10px rgba(0,0,0,0.1);
+        transform:translateX(100%); /* Ocultar fuera de la vista */
+        transition:transform 0.3s ease-in-out;
+        padding:20px;
+      }
+      .nav-links li{
+        margin-bottom:10px;
+      }
+      .nav-links a{
+        display:block; /* Para que ocupe todo el ancho */
+        padding:12px 10px;
+        border-radius:6px;
+      }
+
+      /* ESTADO ABIERTO DEL MENÚ */
+      .nav-open .nav-links ul{
+        transform:translateX(0); /* Mostrar el menú */
+      }
+
+      /* EFECTO X EN EL BOTÓN AL ABRIR */
+      .nav-open .menu-toggle .line:nth-child(2){
+        opacity:0;
+      }
+      .nav-open .menu-toggle .line:nth-child(1){
+        transform:translateY(8px) rotate(45deg);
+      }
+      .nav-open .menu-toggle .line:nth-child(3){
+        transform:translateY(-8px) rotate(-45deg);
+      }
+    }
+
     /* HERO */
     .hero{
       min-height:45vh;padding-top:88px;
-      background-image:url('https://www.zebra.com/content/dam/zebra_dam/global/zcom-web-production/web-production-photography/web004/zt231-warehouse-photography-website-rfid-label-pealing-supplies-3600x2700.jpg.imgo.jpg');
+      background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1650&q=80');
       background-size:cover;background-position:center;
       color:white;text-align:center;
       display:flex;align-items:center;justify-content:center;
@@ -92,7 +158,7 @@
       </div>
     </div>
 
-    <nav>
+    <nav class="nav-links">
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="mision.html">Misión</a></li>
@@ -100,6 +166,12 @@
         <li><a href="como-funciona.html" style="background:var(--glass)">Cómo funciona</a></li>
       </ul>
     </nav>
+
+    <button class="menu-toggle" aria-label="Abrir menú de navegación">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </button>
   </div>
 </header>
 
@@ -112,7 +184,6 @@
 
 <main>
 
-  <!-- FLUJO DE TRABAJO RFID -->
   <section class="card">
     <h2 class="section-title">Flujo de trabajo del inventario usando RFID</h2>
     <p class="muted">
@@ -192,13 +263,11 @@
     </div>
   </section>
 
-  <!-- IMAGEN DEMO -->
   <section class="card">
     <div class="img-block" style="background-image:url('https://images.unsplash.com/photo-1581091012184-7c8988d96a11?auto=format&fit=crop&w=1200&q=80')"></div>
     <p class="muted">La lectura RFID permite identificar múltiples artículos al mismo tiempo, incluso dentro de cajas o a distancia.</p>
   </section>
 
-  <!-- BOTÓN REGRESAR -->
   <section class="card">
     <h3 class="section-title">Volver al inicio</h3>
     <a href="index.html" style="background:var(--accent);padding:10px 16px;color:white;text-decoration:none;border-radius:10px;font-weight:700">
@@ -212,6 +281,14 @@
   © Controlity · 2025 · Tecnología RFID para inventarios
 </footer>
 
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const body = document.body;
+
+  menuToggle.addEventListener('click', () => {
+    body.classList.toggle('nav-open');
+  });
+</script>
+
 </body>
 </html>
-
